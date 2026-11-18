@@ -1,3 +1,28 @@
+#中序遍历
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def inorder(node):
+    if node is None:
+        return
+    inorder(node.left)
+    print(node.val)
+    inorder(node.right)
+root= TreeNode(12)
+root.left= TreeNode(6)
+root.left.left= TreeNode(9)
+root.left.right= TreeNode(4)
+root.left.right.left= TreeNode(15)
+root.right= TreeNode(20)
+root.right.right= TreeNode(27)
+root.right.right.left= TreeNode(3)
+root.right.right.left.right= TreeNode(22)
+inorder(root)
+
+#两数之和
 def two_sum(nums, target):
     seen = {}
     for i in range(len(nums)):
@@ -10,6 +35,7 @@ def two_sum(nums, target):
 print(two_sum([8, 3, 11, 5, 2], 14))
 print(two_sum([13, 6, 1, 9], 10))
 
+#双指针移动零
 def move_zeroes(nums):
     slow = 0
     for fast in range(len(nums)):
@@ -19,6 +45,7 @@ def move_zeroes(nums):
     return nums
 print(move_zeroes([0, 7, 0, 3, 12, 0, 5]))
 
+#是否有重复元素
 def contains_duplicate(nums):
     seen=set()
     for i in range(len(nums)):
